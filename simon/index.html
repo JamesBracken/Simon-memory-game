@@ -1,16 +1,41 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <!-- SEO tags -->
-    <meta name="author" content="Christopher James Bracken">
-    <meta name="description" content="A simon memory game, challenge your memory skills now!">
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Simon | Memory game</title>
-  </head>
-  <body>
-    <div id="app"></div>
-    <script type="module" src="./src/js/main.ts"></script>
-  </body>
+
+<head>
+  <meta charset="UTF-8" />
+  <!-- SEO tags -->
+  <meta name="author" content="Christopher James Bracken">
+  <meta name="description" content="A simon memory game, challenge your memory skills now!">
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Simon | Memory game</title>
+  <!-- Bootstrap CSS import  -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+</head>
+
+<body>
+  <main>
+    <div class="container">
+      <!-- Adding an extra div container outside of row for better spacing
+       control -->
+      <div>
+        <div class="row">
+          <div class="col">
+            <div class="game__circle4-color game__circle4-size game__circle-shape">
+              <div class="game__circle3-color game__circle3-size game__circle-shape">
+                <div class="game__circle2-color game__circle2-size game__circle-shape">
+                  <div class="game__circle1-color game__circle1-size game__circle-shape">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+  <script type="module" src="./src/js/main.ts"></script>
+</body>
+
 </html>
