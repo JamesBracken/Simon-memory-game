@@ -16,16 +16,18 @@
 
 <body>
   <main>
-    <div class="container">
-      <!-- Adding an extra div container outside of row for better spacing
+    <section>
+      <div class="container d-flex justify-content-center">
+        <!-- Adding an extra div container outside of row for better spacing
        control -->
-      <div>
-        <div class="row">
-          <div class="col">
-            <div class="game__circle4-color game__circle4-size game__circle-shape">
-              <div class="game__circle3-color game__circle3-size game__circle-shape">
-                <div class="game__circle2-color game__circle2-size game__circle-shape">
-                  <div class="game__circle1-color game__circle1-size game__circle-shape">
+        <div class="p-5">
+          <div class="row">
+            <div class="col-12">
+              <div class="game__circle  game__circle--xlarge game__circle__shape">
+                <div class="game__circle game__circle--large game__circle__shape">
+                  <div class="game__circle game__circle--medium game__circle__shape">
+                    <div class="game__circle game__circle--small game__circle__shape">
+                    </div>
                   </div>
                 </div>
               </div>
@@ -33,7 +35,7 @@
           </div>
         </div>
       </div>
-    </div>
+    </section>
   </main>
   <script type="module" src="./src/js/main.ts"></script>
 </body>
