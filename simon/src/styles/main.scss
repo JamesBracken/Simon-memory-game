@@ -2,6 +2,9 @@
 @use "./abstracts/mixins";
 
 .game {
+    position: relative;
+    width: 300px;
+    height: 300px;
     &__circle {
 
         @include mixins.center-circle;
@@ -9,24 +12,28 @@
             background-color: palette.$color-red;
             width: 50px;
             height: 50px;
+            z-index: 10;
         }
 
         &--medium {
             background-color: palette.$color-yellow;
             width: 120px;
             height: 120px;
+            z-index: 9;
         }
 
         &--large {
             background-color: palette.$color-blue;
             width: 190px;
             height: 190px;
+            z-index: 8;
         }
 
         &--xlarge {
             background-color: palette.$color-green;
             width: 260px;
             height: 260px;
+            z-index: 7;
         }
 
         &__shape {
