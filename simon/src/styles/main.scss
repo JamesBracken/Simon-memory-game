@@ -1,0 +1,49 @@
+@use "./abstracts/palette.scss";
+
+.game {
+    &__circle1 {
+        &-color {
+            background-color: palette.$color-red;
+        }
+        &-size {
+            width: 50px;
+            height: 50px;
+        }
+    }
+    &__circle2 {
+        
+        &-color {
+            background-color: palette.$color-yellow;
+        }
+        &-size {
+            width: 120px;
+            height: 120px;
+        }
+    }
+    &__circle3 {
+        
+        &-color {
+            background-color: palette.$color-blue;
+        }
+        &-size {
+            width: 190px;
+            height: 190px;
+        }
+    }
+    &__circle4 {
+        
+        &-color {
+            background-color: palette.$color-green;
+        }
+        &-size {
+            width: 260px;
+            height: 260px;
+        }
+    }
+
+    &__circle {
+        &-shape {
+            border-radius: 100%;
+        }
+    }
+}
