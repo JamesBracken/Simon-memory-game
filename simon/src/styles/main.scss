@@ -29,9 +29,10 @@
             height: 260px;
         }
 
-    &__circle {
-        &-shape {
-            border-radius: 100%;
+        &__shape {
+            border-radius: 50%;
+            clip-path: circle(50%);
+            overflow: hidden;
         }
     }
 }
