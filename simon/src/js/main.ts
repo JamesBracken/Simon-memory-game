@@ -1,4 +1,4 @@
-import '../styles/main.scss'
+import '../styles/main.scss';
 
 // Global variables
 
@@ -7,7 +7,7 @@ const circles = document.querySelectorAll<HTMLDivElement>(".game__circle");
 const userClicksArr: string[] = [];
 
 // Let
-let userClickCounter: number = 0
+let userClickCounter: number = 0;
 
 //Null variable handlers
 if (!circles) {
@@ -16,26 +16,26 @@ if (!circles) {
 
 // Functions
 const handleCircleClick = (e: Event) => {
-    const targetedCircle = e.target
-    userClicksArr.push(targetedCircle.dataset.circleSize)
-    // console.log("", getComputedStyle(targetedCircle).backgroundColor)
-    brightenColor(targetedCircle)
+    const targetedCircle = e.target;
+    userClicksArr.push(targetedCircle.dataset.circleSize);
+    brightenColor(targetedCircle);
+    userClickCounter += 1;
 }
-
-// Testing this code 
 
 const brightenColor = (targetedCircle: Element) => {
-    console.log(targetedCircle)
-    const circleOriginalColor = getComputedStyle(targetedCircle).backgroundColor
-    const brightColor = targetedCircle.dataset.brightColor
-    targetedCircle.style.backgroundColor = brightColor
+    const originalCircleColor = targetedCircle.dataset.color;
+    // const circleRGBColor = getComputedStyle(originalCircleColor);
+    const brightColor = targetedCircle.dataset.brightColor;
+    targetedCircle.style.backgroundColor = brightColor;
+    setTimeout(() => {
+        targetedCircle.style.backgroundColor = originalCircleColor;
+    }, 700)
 }
 
-//  End of new code
 // Event listeners
 circles.forEach((circle) => {
-    circle.addEventListener("click", handleCircleClick)
-})
+    circle.addEventListener("click", handleCircleClick);
+});
 
 
 // Items which don't conform to other categories
