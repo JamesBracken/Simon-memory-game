@@ -3,16 +3,20 @@ import '../styles/main.scss'
 // Global variables
 
 // Const
-const circles = document.querySelectorAll<HTMLDivElement>(".game__circle")
+const circles = document.querySelectorAll<HTMLDivElement>(".game__circle");
 const userClicksArr: string[] = [];
 
 // Let
 let userClickCounter: number = 0
 
+//Null variable handlers
+if(!circles) {
+    throw new Error("There is no existing variable circles");
+}
 
 // Functions
 const handleCircleClick = (e: Event) => {
-    console.log(e.target.dataset.circleSize)
+    console.log(e.target.dataset.circleSize);
 }
 
 // // Event listeners
