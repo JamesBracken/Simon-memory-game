@@ -1,13 +1,12 @@
 import '../styles/main.scss';
 
 // Global variables
-
-// Const
 const circles = document.querySelectorAll<HTMLDivElement>(".game__circle");
+const circleSizeArr: string[] = ["small", "medium", "large", "xlarge"]
 const userClicksArr: string[] = [];
-
-// Let
+const randCircleOrderArr: string[] = []
 let userClickCounter: number = 0;
+let currentRound: number = 0;
 
 //Null variable handlers
 if (!circles) {
@@ -17,6 +16,9 @@ if (!circles) {
 // Functions
 const handleCircleClick = (e: Event) => {
     const targetedCircle = e.target;
+    if(!targetedCircle) {
+        throw new Error("The selected circle does not exist, what a conundrum!")
+    }
     userClicksArr.push(targetedCircle.dataset.circleSize);
     brightenColor(targetedCircle);
     userClickCounter += 1;
@@ -24,12 +26,29 @@ const handleCircleClick = (e: Event) => {
 
 const brightenColor = (targetedCircle: Element) => {
     const originalCircleColor = targetedCircle.dataset.color;
-    // const circleRGBColor = getComputedStyle(originalCircleColor);
     const brightColor = targetedCircle.dataset.brightColor;
     targetedCircle.style.backgroundColor = brightColor;
     setTimeout(() => {
         targetedCircle.style.backgroundColor = originalCircleColor;
     }, 700)
+}
+
+const handleStartNewGame = () => {
+    // Resetting all variables to ensure a clean game state at game start
+    userClicksArr.forEach(() => userClicksArr.pop())
+    userClickCounter = 0
+    currentRound = 0
+    handleNewRound()
+}
+
+const handleNewRound = () => {
+    addRandomCircle()
+    currentRound += 1
+}
+
+const addRandomCircle = () => {
+    const randomInt: number = Math.floor(Math.random() * 4)
+    randCircleOrderArr.push(circleSizeArr[randomInt])
 }
 
 // Event listeners
