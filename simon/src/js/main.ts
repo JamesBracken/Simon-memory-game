@@ -70,6 +70,8 @@ const displayGeneratedCircleOrder = async () => {
         // brightenColor timeout
         await delay(1000)
     }
+    // Re-enabling circle events 
+    circles.forEach(circle => circle.style.pointerEvents = "auto");
 }
 
 const delay = (ms: number) => {
@@ -78,8 +80,12 @@ const delay = (ms: number) => {
 
 const checkUserInputIsCorrect = () => {
 
-    
+
     const isUserClicksFinished = userClicksArr.length == currentRound
+    if (isUserClicksFinished) {
+        // Disable user clicks after reaching the correct amount of clicks
+        circles.forEach(circle => circle.style.pointerEvents = "none");
+    }
     const isUserClicksCorrect = userClicksArr.join() === randCircleOrderArr.join()
     if (isUserClicksFinished && isUserClicksCorrect) {
         console.log("isUserClicksFinished if block invoked",)
