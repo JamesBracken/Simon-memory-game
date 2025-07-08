@@ -4,11 +4,13 @@ import '../styles/main.scss';
 const circles = document.querySelectorAll<HTMLDivElement>(".game__circle");
 const circleSizeArr: string[] = ["small", "medium", "large", "xlarge"]
 const startBtn = document.querySelector("#startGame")
+const confirmRestartGameBtn = document.querySelector<HTMLButtonElement>("#confirmRestartGameBtn")
+const restartGameBtn = document.querySelector<HTMLButtonElement>("#restartGameBtn")
 const userClicksArr: string[] = [];
 const randCircleOrderArr: string[] = []
 let userClickCounter: number = 0;
 let currentRound: number = 0;
-
+let isActiveGame = false
 //Null variable handlers
 if (!circles) {
     throw new Error("There is no existing variable circles");
@@ -46,6 +48,8 @@ const handleStartNewGame = () => {
     userClickCounter = 0
     currentRound = 0
     handleNewRound()
+    isActiveGame = true
+    toggleGameActivity()
 }
 
 const handleNewRound = () => {
@@ -97,16 +101,41 @@ const checkUserInputIsCorrect = () => {
 }
 
 const handleEndGame = () => {
+    isActiveGame = false
+    toggleGameActivity()
     const gameEndModal = document.querySelector("#gameEndModal")
     const modal = new bootstrap.Modal(gameEndModal)
     modal.show()
+
+    restartGameBtn?.addEventListener("click", () => {
+        handleStartNewGame
+        modal.hide()
+    })
 }
 // Event listeners
 circles.forEach((circle) => {
     circle.addEventListener("click", handleCircleClick);
 });
 
+// If a game is active prompt the user before game restart
 startBtn?.addEventListener("click", handleStartNewGame)
+
+const toggleGameActivity = () => {
+    if (!isActiveGame) {
+        startBtn?.addEventListener("click", handleStartNewGame)
+    } else {
+        startBtn?.addEventListener("click", () => {
+            const gameEndModal = document.querySelector("#confirmGameRestartModal")
+            const modal = new bootstrap.Modal(gameEndModal)
+            modal.show()
+            confirmRestartGameBtn.addEventListener("click", () => {
+                // const gameEndModal = document.querySelector("#confirmGameRestartModal")
+                modal.hide()
+            })
+        })
+    }
+}
+confirmRestartGameBtn.addEventListener("click", handleStartNewGame)
 
 
 // Items which don't conform to other categories

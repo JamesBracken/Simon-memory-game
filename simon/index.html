@@ -44,7 +44,8 @@
       </div>
     </section>
   </main>
-<!-- Bootstrap modal -->
+  <!-- Bootstrap modal -->
+  <!-- End of game modal -->
   <div class="modal fade" id="gameEndModal" tabindex="-1" aria-labelledby="gameEndModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
@@ -56,7 +57,27 @@
           <p>Congratulations! you got <span>blank</span> points</p>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-primary">Restart game</button>
+          <button id="restartGameBtn" type="button" class="btn btn-primary">Restart game</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Confirm game restart modal -->
+
+
+  <div class="modal fade" id="confirmGameRestartModal" tabindex="-1" aria-labelledby="confirmGameRestartModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2 class="modal-title fs-5" id="exampleModalLabel">Confirm restart</h2>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p>Are you sure you want to restart the game? You will lose your current progress</p>
+        </div>
+        <div class="modal-footer">
+          <button id="confirmRestartGameBtn" type="button" class="btn btn-primary">Restart game</button>
         </div>
       </div>
     </div>
