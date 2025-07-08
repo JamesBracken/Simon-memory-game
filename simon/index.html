@@ -24,15 +24,19 @@
           <div class="row">
             <div class="col-12 game">
               <div>
-                <button id="startGame">Start</button>
+                <button id="startGame">Start/Restart</button>
               </div>
-              <div class="game__circle  game__circle--xlarge game__circle__shape" data-circle-size="xlarge" data-bright-color="rgb(153, 255, 153)" data-color="rgb(0, 255, 0)">
+              <div class="game__circle  game__circle--xlarge game__circle__shape" data-circle-size="xlarge"
+                data-bright-color="rgb(153, 255, 153)" data-color="rgb(0, 255, 0)">
               </div>
-              <div class="game__circle game__circle--large game__circle__shape" data-circle-size="large" data-bright-color="rgb(112, 112, 255)" data-color="rgb(0, 0, 255)">
+              <div class="game__circle game__circle--large game__circle__shape" data-circle-size="large"
+                data-bright-color="rgb(112, 112, 255)" data-color="rgb(0, 0, 255)">
               </div>
-              <div class="game__circle game__circle--medium game__circle__shape" data-circle-size="medium" data-bright-color="rgb(255, 255, 194)" data-color="rgb(255, 255, 0)">
+              <div class="game__circle game__circle--medium game__circle__shape" data-circle-size="medium"
+                data-bright-color="rgb(255, 255, 194)" data-color="rgb(255, 255, 0)">
               </div>
-              <div class="game__circle game__circle--small game__circle__shape" data-circle-size="small" data-bright-color="rgb(255, 92, 92)" data-color="rgb(255, 0, 0)">
+              <div class="game__circle game__circle--small game__circle__shape" data-circle-size="small"
+                data-bright-color="rgb(255, 92, 92)" data-color="rgb(255, 0, 0)">
               </div>
             </div>
           </div>
@@ -40,6 +44,29 @@
       </div>
     </section>
   </main>
+<!-- Bootstrap modal -->
+  <div class="modal fade" id="gameEndModal" tabindex="-1" aria-labelledby="gameEndModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2 class="modal-title fs-5" id="exampleModalLabel">Game End</h2>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p>Congratulations! you got <span>blank</span> points</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary">Restart game</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
+    crossorigin="anonymous"></script>
+  <!-- Main scripts -->
   <script type="module" src="./src/js/main.ts"></script>
 </body>
 

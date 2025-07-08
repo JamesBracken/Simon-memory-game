@@ -63,6 +63,7 @@ const addRandomCircle = () => {
 }
 
 const displayGeneratedCircleOrder = async () => {
+    console.log("Firing displayGeneratedCircleOrder")
     for (let circle of randCircleOrderArr) {
         const selectedCircle = document.querySelector(`.game__circle--${circle}`)
         brightenColor(selectedCircle)
@@ -79,18 +80,26 @@ const delay = (ms: number) => {
 }
 
 const checkUserInputIsCorrect = () => {
-
-
     const isUserClicksFinished = userClicksArr.length == currentRound
+    const isUserClicksCorrect = userClicksArr.join() === randCircleOrderArr.join()
     if (isUserClicksFinished) {
         // Disable user clicks after reaching the correct amount of clicks
+        // This is reenabled after displaying machine generated circles
         circles.forEach(circle => circle.style.pointerEvents = "none");
     }
-    const isUserClicksCorrect = userClicksArr.join() === randCircleOrderArr.join()
     if (isUserClicksFinished && isUserClicksCorrect) {
         console.log("isUserClicksFinished if block invoked",)
         handleNewRound()
     }
+    if (isUserClicksFinished && !isUserClicksCorrect) {
+        handleEndGame()
+    }
+}
+
+const handleEndGame = () => {
+    const gameEndModal = document.querySelector("#gameEndModal")
+    const modal = new bootstrap.Modal(gameEndModal)
+    modal.show()
 }
 // Event listeners
 circles.forEach((circle) => {
