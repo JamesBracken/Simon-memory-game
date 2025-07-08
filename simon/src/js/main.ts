@@ -23,6 +23,7 @@ const handleCircleClick = (e: Event) => {
     userClicksArr.push(targetedCircle.dataset.circleSize);
     brightenColor(targetedCircle);
     userClickCounter += 1;
+    checkUserInputIsCorrect()
 }
 
 const brightenColor = (targetedCircle: Element) => {
@@ -48,9 +49,12 @@ const handleStartNewGame = () => {
 }
 
 const handleNewRound = () => {
+    currentRound += 1
+    for (let i = userClicksArr.length; i > 0; i--) {
+        userClicksArr.pop()
+    }
     addRandomCircle()
     displayGeneratedCircleOrder()
-    currentRound += 1
 }
 
 const addRandomCircle = () => {
@@ -58,7 +62,7 @@ const addRandomCircle = () => {
     randCircleOrderArr.push(circleSizeArr[randomInt])
 }
 
-const displayGeneratedCircleOrder = async() => {
+const displayGeneratedCircleOrder = async () => {
     for (let circle of randCircleOrderArr) {
         const selectedCircle = document.querySelector(`.game__circle--${circle}`)
         brightenColor(selectedCircle)
@@ -68,8 +72,19 @@ const displayGeneratedCircleOrder = async() => {
     }
 }
 
-const delay =(ms: number) => {
+const delay = (ms: number) => {
     return new Promise(resolve => setTimeout(resolve, ms))
+}
+
+const checkUserInputIsCorrect = () => {
+
+    
+    const isUserClicksFinished = userClicksArr.length == currentRound
+    const isUserClicksCorrect = userClicksArr.join() === randCircleOrderArr.join()
+    if (isUserClicksFinished && isUserClicksCorrect) {
+        console.log("isUserClicksFinished if block invoked",)
+        handleNewRound()
+    }
 }
 // Event listeners
 circles.forEach((circle) => {
