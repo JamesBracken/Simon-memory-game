@@ -52,12 +52,13 @@ const handleStartNewGame = () => {
     toggleGameActivity()
 }
 
-const handleNewRound = () => {
+const handleNewRound = async () => {
     currentRound += 1
     for (let i = userClicksArr.length; i > 0; i--) {
         userClicksArr.pop()
     }
     addRandomCircle()
+    await delay(1500)
     displayGeneratedCircleOrder()
 }
 
@@ -108,8 +109,8 @@ const handleEndGame = () => {
     modal.show()
 
     restartGameBtn?.addEventListener("click", () => {
-        handleStartNewGame
         modal.hide()
+        handleStartNewGame()
     })
 }
 // Event listeners
