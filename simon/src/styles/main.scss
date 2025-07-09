@@ -3,8 +3,12 @@
 @use "./base/typography.scss";
 @use "./components/level-display";
 @use "./components/button";
+@use "./vendors/bootstrap-overrides";
 
-
+body {
+    background-color: palette.$color-light-black;
+    color: palette.$color-white;
+}
 .game {
     position: relative;
     width: 300px;
@@ -34,7 +38,7 @@
         }
 
         &--xlarge {
-            background-color: palette.$color-green;
+            background-color: palette.$color-green-dark;
             width: 260px;
             height: 260px;
             z-index: 7;
