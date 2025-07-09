@@ -102,9 +102,13 @@ const checkUserInputIsCorrect = () => {
 }
 
 const handleEndGame = () => {
+    const endOfGameModalPointsDisplay = document.querySelector<HTMLSpanElement>("#endOfGameModalPointsDisplay")
     isActiveGame = false
     toggleGameActivity()
     const gameEndModal = document.querySelector("#gameEndModal")
+    endOfGameModalPointsDisplay.innerHTML = `${currentRound} ${currentRound > 1 ? "points": "point"}`
+    console.log("endOfGameModalPointsDisplay", endOfGameModalPointsDisplay)
+    console.log("currentRound", currentRound)
     const modal = new bootstrap.Modal(gameEndModal)
     modal.show()
 
