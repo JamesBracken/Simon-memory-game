@@ -53,7 +53,12 @@ const handleStartNewGame = () => {
 }
 
 const handleNewRound = async () => {
+    const levelDisplay = document.querySelector<HTMLHeadingElement>("#levelDisplay")
+    if (!levelDisplay) {
+        throw new Error("The level display does not exist ")
+    }
     currentRound += 1
+    levelDisplay.innerHTML = `${currentRound}`
     for (let i = userClicksArr.length; i > 0; i--) {
         userClicksArr.pop()
     }
@@ -106,7 +111,7 @@ const handleEndGame = () => {
     isActiveGame = false
     toggleGameActivity()
     const gameEndModal = document.querySelector("#gameEndModal")
-    endOfGameModalPointsDisplay.innerHTML = `${currentRound} ${currentRound > 1 ? "points": "point"}`
+    endOfGameModalPointsDisplay.innerHTML = `${currentRound} ${currentRound > 1 ? "points" : "point"}`
     console.log("endOfGameModalPointsDisplay", endOfGameModalPointsDisplay)
     console.log("currentRound", currentRound)
     const modal = new bootstrap.Modal(gameEndModal)

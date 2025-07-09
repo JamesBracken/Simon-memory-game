@@ -1,6 +1,7 @@
 @use "./abstracts/palette.scss";
 @use "./abstracts/mixins";
 @use "./base/typography.scss";
+@use "./components/level-display";
 .game {
     position: relative;
     width: 300px;

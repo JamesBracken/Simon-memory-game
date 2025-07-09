@@ -1,3 +1,8 @@
+@mixin center-content {
+    display: flex;
+    justify-content: center;
+}
+
 @mixin center-circle {
     position: absolute;
     top: 50%;
