@@ -1,0 +1,50 @@
+// Global variables
+
+// Font families
+/* Headings */
+$text-primary: "Press Start 2P", system-ui;
+/* Body text */
+$text-secondary: "IBM Plex Mono", monospace;
+
+// Font sizes
+$fs-heading-1-lg: 4.063rem;
+/* 65px */
+$fs-heading-1: 3.125rem;
+/* 50px */
+$fs-heading-2: 2.5rem;
+/* 40px */
+$fs-subheading: 1.5625rem;
+/* 25px */
+$fs-body-large: 1.25rem;
+/* 20px */
+$fs-body-small: 1rem;
+/* 16px */
+
+
+// Font weights
+$fw-extra-bold: 800;
+$fw-bold: 700;
+$fw-semi-bold: 550;
+$fw-medium: 425;
+$fw-regular: 300;
+
+
+h1 {
+    font-size: $fs-heading-1;
+    font-family: $text-primary;
+}
+
+h2 {
+    font-size: $fs-heading-2;
+    font-family: $text-primary;
+}
+
+.subheading {
+    font-family: $text-primary;
+    font-size: $fs-subheading;
+}
+
+p {
+    font-size: $fs-body-small;
+    font-family: $text-secondary;
+}

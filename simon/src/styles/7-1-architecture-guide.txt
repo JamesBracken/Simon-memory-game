@@ -10,7 +10,7 @@ scss compilation ex. _modal.scss
 abstracts
 - Variables, mixins, colors, functions
 base
-- Reset, typography, typography, normalize
+- Reset, typography, normalize
 components
 - Button, card, navbar, modal, etc.
 layout

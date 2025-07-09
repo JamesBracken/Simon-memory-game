@@ -1,6 +1,6 @@
 @use "./abstracts/palette.scss";
 @use "./abstracts/mixins";
-
+@use "./base/typography.scss";
 .game {
     position: relative;
     width: 300px;
