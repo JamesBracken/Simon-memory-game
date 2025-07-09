@@ -2,6 +2,9 @@
 @use "./abstracts/mixins";
 @use "./base/typography.scss";
 @use "./components/level-display";
+@use "./components/button";
+
+
 .game {
     position: relative;
     width: 300px;
