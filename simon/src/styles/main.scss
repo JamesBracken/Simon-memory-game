@@ -9,13 +9,16 @@ body {
     background-color: palette.$color-light-black;
     color: palette.$color-white;
 }
+
 .game {
     position: relative;
     width: 300px;
     height: 300px;
+
     &__circle {
 
         @include mixins.center-circle;
+
         &--small {
             background-color: palette.$color-red;
             width: 50px;
@@ -44,10 +47,43 @@ body {
             z-index: 7;
         }
 
-        &__shape {
+        &--shape {
             border-radius: 50%;
             clip-path: circle(50%);
             overflow: hidden;
         }
+
+        &--green {
+            background-color: palette.$color-green;
+        }
+
+        &--green-bright {
+            background-color: palette.$color-green-bright;
+        }
+
+        &--red {
+            background-color: palette.$color-red;
+        }
+
+        &--red-bright {
+            background-color: palette.$color-red-bright;
+        }
+
+        &--blue {
+            background-color: palette.$color-blue;
+        }
+
+        &--blue-bright {
+            background-color: palette.$color-blue-bright;
+        }
+
+        &--yellow {
+            background-color: palette.$color-yellow;
+        }
+
+        &--yellow-bright {
+            background-color: palette.$color-yellow-bright;
+        }
+
     }
 }

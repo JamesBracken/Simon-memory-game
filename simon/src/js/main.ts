@@ -2,15 +2,17 @@ import '../styles/main.scss';
 
 // Global variables
 const circles = document.querySelectorAll<HTMLDivElement>(".game__circle");
-const circleSizeArr: string[] = ["small", "medium", "large", "xlarge"]
 const startBtn = document.querySelector("#startGame")
 const confirmRestartGameBtn = document.querySelector<HTMLButtonElement>("#confirmRestartGameBtn")
 const restartGameBtn = document.querySelector<HTMLButtonElement>("#restartGameBtn")
+const circleSizeArr: string[] = ["small", "medium", "large", "xlarge"]
+const circleColorsArr = ["game__circle--blue", "game__circle--green",
+    "game__circle--red", "game__circle--yellow"]
 const userClicksArr: string[] = [];
 const randCircleOrderArr: string[] = []
 let userClickCounter: number = 0;
 let currentRound: number = 0;
-let isActiveGame = false
+let isActiveGame: boolean = false;
 //Null variable handlers
 if (!circles) {
     throw new Error("There is no existing variable circles");
@@ -18,8 +20,8 @@ if (!circles) {
 
 // Functions
 const handleCircleClick = (e: Event) => {
-    const targetedCircle = e.target;
-    if (!targetedCircle) {
+    const targetedCircle = e.target as HTMLDivElement;
+    if (!targetedCircle | targetedCircle) {
         throw new Error("The selected circle does not exist, what a conundrum!")
     }
     userClicksArr.push(targetedCircle.dataset.circleSize);
@@ -29,11 +31,17 @@ const handleCircleClick = (e: Event) => {
 }
 
 const brightenColor = (targetedCircle: Element) => {
-    const originalCircleColor = targetedCircle.dataset.color;
-    const brightColor = targetedCircle.dataset.brightColor;
-    targetedCircle.style.backgroundColor = brightColor;
+    const colorClasses = [targetedCircle.classList].toString().split(" ");
+    console.log(colorClasses)
+    const colorClass = colorClasses.filter((elClass) => {
+        console.log(elClass)
+        return circleColorsArr.includes(elClass);
+    })
+    const colorBrightClass = `${colorClass}-bright`
+
+    targetedCircle.classList += ` ${colorBrightClass}`
     setTimeout(() => {
-        targetedCircle.style.backgroundColor = originalCircleColor;
+        targetedCircle.classList.remove(colorBrightClass);
     }, 700)
 }
 
