@@ -3,7 +3,7 @@ import { Modal } from "bootstrap";
 
 // Const global variables
 const circles = document.querySelectorAll<HTMLDivElement>(".game__circle");
-const startBtn = document.querySelector("#startGame")
+const startGameBtn = document.querySelector<HTMLButtonElement>("#startGameBtn")
 const confirmRestartGameBtn = document.querySelector<HTMLButtonElement>("#confirmRestartGameBtn")
 const restartGameBtn = document.querySelector<HTMLButtonElement>("#restartGameBtn")
 const circleSizeArr: string[] = ["small", "medium", "large", "xlarge"]
@@ -26,6 +26,9 @@ if (!confirmRestartGameBtn) {
     throw new Error("The confirm restart game button cannot be found")
 }
 
+if (!startGameBtn) {
+    throw new Error("The start game button cannot be found")
+}
 // Functions
 const handleCircleClick = (e: Event) => {
     const targetedCircle = e.target as HTMLDivElement;
@@ -42,9 +45,7 @@ const handleCircleClick = (e: Event) => {
 
 const brightenColor = (targetedCircle: Element) => {
     const colorClasses = [targetedCircle.classList].toString().split(" ");
-    console.log(colorClasses)
     const colorClass = colorClasses.filter((elClass) => {
-        console.log(elClass)
         return circleColorsArr.includes(elClass);
     })
     const colorBrightClass = `${colorClass}-bright`
@@ -65,9 +66,9 @@ const handleStartNewGame = () => {
     }
     userClickCounter = 0
     currentRound = 0
+    startGameBtn.innerText = "Restart";
     handleNewRound()
     isActiveGame = true
-    toggleGameActivity()
 }
 
 const handleNewRound = async () => {
@@ -91,7 +92,6 @@ const addRandomCircle = () => {
 }
 
 const displayGeneratedCircleOrder = async () => {
-    console.log("Firing displayGeneratedCircleOrder")
     for (let circle of randCircleOrderArr) {
         const selectedCircle = document.querySelector(`.game__circle--${circle}`);
         if (!selectedCircle) {
@@ -119,7 +119,6 @@ const checkUserInputIsCorrect = () => {
         circles.forEach(circle => circle.style.pointerEvents = "none");
     }
     if (isUserClicksFinished && isUserClicksCorrect) {
-        console.log("isUserClicksFinished if block invoked",)
         handleNewRound()
     }
     if (isUserClicksFinished && !isUserClicksCorrect) {
@@ -133,48 +132,54 @@ const handleEndGame = () => {
         throw new Error("The end of game modal points display does not exist")
     }
     isActiveGame = false
-    toggleGameActivity()
+    startGameBtn.innerText = "Start";
     const gameEndModal = document.querySelector("#gameEndModal")
     endOfGameModalPointsDisplay.innerHTML = `${currentRound} ${currentRound > 1 ? "points" : "point"}`
-    console.log("endOfGameModalPointsDisplay", endOfGameModalPointsDisplay)
-    console.log("currentRound", currentRound)
     if (!gameEndModal) {
         throw new Error("The game end modal has not been found, it may be undefined")
     }
     const modal = new Modal(gameEndModal)
     modal.show()
-
-    restartGameBtn?.addEventListener("click", () => {
-        modal.hide()
-        handleStartNewGame()
+    startGameBtn.addEventListener("click", () => {
+        handleStartNewGame
     })
 }
 
-const toggleGameActivity = () => {
+const handleStartGameBtnClick = () => {
     if (!isActiveGame) {
-        startBtn?.addEventListener("click", handleStartNewGame)
+        handleStartNewGame
     } else {
-        startBtn?.addEventListener("click", () => {
-            const gameEndModal = document.querySelector("#confirmGameRestartModal")
-            if (!gameEndModal) {
-                throw new Error("The game end modal has not been found, it may be undefined")
-            }
-            const modal = new Modal(gameEndModal)
-            modal.show()
-            confirmRestartGameBtn.addEventListener("click", () => {
-                // const gameEndModal = document.querySelector("#confirmGameRestartModal")
-                modal.hide()
-            })
-        })
+        const gameEndModal = document.querySelector("#confirmGameRestartModal")
+        if (!gameEndModal) {
+            throw new Error("The game end modal has not been found, it may be undefined")
+        }
+        const modal = new Modal(gameEndModal)
+        modal.show()
     }
 }
+
 // Event listeners
+startGameBtn.addEventListener("click", handleStartGameBtnClick)
+
 circles.forEach((circle) => {
     circle.addEventListener("click", handleCircleClick);
 });
 
-// If a game is active prompt the user before game restart
-startBtn?.addEventListener("click", handleStartNewGame)
+restartGameBtn?.addEventListener("click", () => {
+    const modalEl = document.querySelector("#gameEndModal")
+    if (!modalEl) {
+        throw new Error("The modal with id gameEndModal cannot be found");
+    }
+    const modal = Modal.getInstance(modalEl)
+    if (!modal) {
+        throw new Error("The modal gameEndModal instance cannot be found");
+    }
+    modal.hide()
+    handleStartNewGame()
+})
+
+// Initially settings the button event listener, adjusting in functions
+startGameBtn?.addEventListener("click", handleStartNewGame)
 
 confirmRestartGameBtn.addEventListener("click", handleStartNewGame)
 
