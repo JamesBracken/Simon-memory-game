@@ -1,7 +1,7 @@
-import { userClicksArr, resetUserClicks, toggleIsActiveGame } from "./gameState"
+import { userClicksArr, resetUserClicks, toggleIsActiveGame } from "./game-state"
 import { startGameBtn, circles } from "../constants"
 import { delay } from "../utils/delay"
-import { brightenColor } from "../utils/brightenColor"
+import { brightenColor } from "../utils/brighten-color"
 import { Modal } from "bootstrap";
 
 // Global variables

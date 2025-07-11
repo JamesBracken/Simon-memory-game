@@ -1,7 +1,7 @@
 // Imports
-import { userClicksArr, isActiveGame, incrementUserClicks } from "../services/gameState"
-import { checkUserInputIsCorrect, handleStartNewGame } from "../services/gameLogic"
-import { brightenColor } from "../utils/brightenColor"
+import { userClicksArr, isActiveGame, incrementUserClicks } from "../services/game-state"
+import { checkUserInputIsCorrect, handleStartNewGame } from "../services/game-logic"
+import { brightenColor } from "../utils/brighten-color"
 import { startGameBtn, circles } from "../constants"
 import { Modal } from "bootstrap";
 // Global variables
