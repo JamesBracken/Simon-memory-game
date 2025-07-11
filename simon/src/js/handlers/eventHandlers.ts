@@ -57,7 +57,7 @@ export const attachEventListeners = () => {
         circle.addEventListener("click", handleCircleClick);
     });
 
-    restartGameBtn?.addEventListener("click", () => {
+    restartGameBtn.addEventListener("click", () => {
         const modalEl = document.querySelector("#gameEndModal")
         if (!modalEl) {
             throw new Error("The modal with id gameEndModal cannot be found");
@@ -73,6 +73,18 @@ export const attachEventListeners = () => {
     // Initially settings the button event listener, adjusting in functions
     startGameBtn?.addEventListener("click", handleStartNewGame)
 
-    confirmRestartGameBtn.addEventListener("click", handleStartNewGame)
+    confirmRestartGameBtn.addEventListener("click", () => {
+        const gameEndModal = document.querySelector("#confirmGameRestartModal")
+        if (!gameEndModal) {
+            throw new Error("The game end modal cannot be found")
+        }
+        const modal = Modal.getInstance(gameEndModal)
+        if (!modal) {
+            throw new Error("The game modal instance cannot be found")
+        }
+        modal.hide()
+        handleStartNewGame
+
+    })
 
 }
