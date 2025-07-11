@@ -27,7 +27,7 @@ models
 - Types and interfaces
 
 utils
-- Helper/support functions
+- Helper/support functions, styling and general UI
 
 pages
 - Page level components (More react specific)
