@@ -1,0 +1,25 @@
+@use "../abstracts/palette";
+@use "../abstracts/mixins";
+@use "../base/typography.scss";
+
+.container {
+    @include mixins.center-content;
+
+    &__btn {
+        color: palette.$color-white;
+        font-family: typography.$text-primary;
+        font-size: typography.$fs-body-small;
+        background-color: palette.$color-green;
+        border-radius: 10px;
+        padding: 3px 12px;
+
+        &:hover {
+            transition: ease-in-out 300ms;
+            background-color: palette.$color-green-dark;
+        }
+
+        &:active {
+            transform: translateY(.5px);
+        }
+    }
+}

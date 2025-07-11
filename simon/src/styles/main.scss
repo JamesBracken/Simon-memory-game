@@ -1,0 +1,89 @@
+@use "./abstracts/palette.scss";
+@use "./abstracts/mixins";
+@use "./base/typography.scss";
+@use "./components/level-display";
+@use "./components/button";
+@use "./vendors/bootstrap-overrides";
+
+body {
+    background-color: palette.$color-light-black;
+    color: palette.$color-white;
+}
+
+.game {
+    position: relative;
+    width: 300px;
+    height: 300px;
+
+    &__circle {
+
+        @include mixins.center-circle;
+
+        &--small {
+            background-color: palette.$color-red;
+            width: 50px;
+            height: 50px;
+            z-index: 10;
+        }
+
+        &--medium {
+            background-color: palette.$color-yellow;
+            width: 120px;
+            height: 120px;
+            z-index: 9;
+        }
+
+        &--large {
+            background-color: palette.$color-blue;
+            width: 190px;
+            height: 190px;
+            z-index: 8;
+        }
+
+        &--xlarge {
+            background-color: palette.$color-green-dark;
+            width: 260px;
+            height: 260px;
+            z-index: 7;
+        }
+
+        &--shape {
+            border-radius: 50%;
+            clip-path: circle(50%);
+            overflow: hidden;
+        }
+
+        &--green {
+            background-color: palette.$color-green;
+        }
+
+        &--green-bright {
+            background-color: palette.$color-green-bright;
+        }
+
+        &--red {
+            background-color: palette.$color-red;
+        }
+
+        &--red-bright {
+            background-color: palette.$color-red-bright;
+        }
+
+        &--blue {
+            background-color: palette.$color-blue;
+        }
+
+        &--blue-bright {
+            background-color: palette.$color-blue-bright;
+        }
+
+        &--yellow {
+            background-color: palette.$color-yellow;
+        }
+
+        &--yellow-bright {
+            background-color: palette.$color-yellow-bright;
+        }
+
+    }
+}

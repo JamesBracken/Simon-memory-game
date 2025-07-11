@@ -1,0 +1,14 @@
+@use "../abstracts/palette";
+@use "../abstracts/mixins";
+
+.level-display {
+    @include mixins.center-content;
+
+    &__text {
+        display: inline-block;
+        justify-self: center;
+        background-color: palette.$color-black;
+        color: palette.$color-white;
+        padding: 8px 14px;
+    }
+}
