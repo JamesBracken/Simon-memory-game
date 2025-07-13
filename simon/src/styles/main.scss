@@ -15,6 +15,18 @@ body {
     width: 300px;
     height: 300px;
 
+    @include mixins.small-screen() {
+        margin-top: 60px;
+    }
+
+    @include mixins.medium-screen() {
+        margin-top: 90px;
+    }
+
+    @include mixins.large-screen() {
+        margin-top: 110px;
+    }
+
     &__circle {
 
         @include mixins.center-circle;
@@ -24,6 +36,21 @@ body {
             width: 50px;
             height: 50px;
             z-index: 10;
+
+            @include mixins.small-screen() {
+                width: 80px;
+                height: 80px;
+            }
+
+            @include mixins.medium-screen() {
+                width: 110px;
+                height: 110px;
+            }
+
+            @include mixins.large-screen() {
+                width: 120px;
+                height: 120px;
+            }
         }
 
         &--medium {
@@ -31,6 +58,21 @@ body {
             width: 120px;
             height: 120px;
             z-index: 9;
+
+            @include mixins.small-screen() {
+                width: 160px;
+                height: 160px;
+            }
+
+            @include mixins.medium-screen() {
+                width: 220px;
+                height: 220px;
+            }
+
+            @include mixins.large-screen() {
+                width: 240px;
+                height: 240px;
+            }
         }
 
         &--large {
@@ -38,6 +80,21 @@ body {
             width: 190px;
             height: 190px;
             z-index: 8;
+
+            @include mixins.small-screen() {
+                width: 240px;
+                height: 240px;
+            }
+
+            @include mixins.medium-screen() {
+                width: 330px;
+                height: 330px;
+            }
+
+            @include mixins.large-screen() {
+                width: 360px;
+                height: 360px;
+            }
         }
 
         &--xlarge {
@@ -45,6 +102,21 @@ body {
             width: 260px;
             height: 260px;
             z-index: 7;
+
+            @include mixins.small-screen() {
+                width: 320px;
+                height: 320px;
+            }
+
+            @include mixins.medium-screen() {
+                width: 440px;
+                height: 440px;
+            }
+
+            @include mixins.large-screen() {
+                width: 480px;
+                height: 480px;
+            }
         }
 
         &--shape {

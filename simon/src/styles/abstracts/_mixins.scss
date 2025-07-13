@@ -24,7 +24,7 @@ $lg: 992px; // landscape tablets / laptops
 }
 
 @mixin medium-screen() {
-    @media only screen and (min-width:($md + 1px)) and (max-width:$lg) {
+    @media only screen and (min-width:$md) and (max-width:$lg) {
         @content;
     }
 }
