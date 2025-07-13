@@ -1,20 +1,24 @@
+// Imports -------
 import { userClicksArr, resetUserClicks, toggleIsActiveGame } from "./game-state"
 import { startGameBtn, circles } from "../constants"
 import { delay } from "../utils/delay"
 import { brightenColor } from "../utils/brighten-color"
 import { Modal } from "bootstrap";
 
-// Global variables
+// Global variables-------
 
 const circleSizeArr: string[] = ["small", "medium", "large", "xlarge"];
 const randCircleOrderArr: string[] = [];
 let currentRound: number = 0;
 
-// Functions
+// Functions--------
 
-
-export const handleStartNewGame = () => {
-    // Resetting all variables to ensure a clean game state at game start
+/** Handles a new game initialization and sets up the first round.
+ * 
+ * @returns void
+ */
+export const handleStartNewGame = (): void => {
+    // Resetting all variables to ensure a clean game state at game start.
     for (let i = userClicksArr.length; i > 0; i--) {
         userClicksArr.pop()
     }
@@ -28,7 +32,11 @@ export const handleStartNewGame = () => {
     toggleIsActiveGame(true)
 }
 
-const handleNewRound = async () => {
+/** Initialize a new round, triggers new round game logic and UI effects.
+ * 
+ * @returns void
+ */
+const handleNewRound = async (): Promise<void> => {
     const levelDisplay = document.querySelector<HTMLHeadingElement>("#levelDisplay")
     if (!levelDisplay) {
         throw new Error("The level display does not exist ")
@@ -39,16 +47,27 @@ const handleNewRound = async () => {
         userClicksArr.pop()
     }
     addRandomCircle()
+    // This delay is to add a bit of separation between user inputs and
+    // machine displaying color brightening each round.
     await delay(1500)
     displayGeneratedCircleOrder()
 }
 
-const addRandomCircle = () => {
+
+/** Add a random circle size to randCircleOrderArr.
+ * 
+ * @returns void
+ */
+const addRandomCircle = (): void => {
     const randomInt: number = Math.floor(Math.random() * 4)
     randCircleOrderArr.push(circleSizeArr[randomInt])
 }
 
-const displayGeneratedCircleOrder = async () => {
+/** Display the stored pattern of circle sizes using circle effects.
+ * 
+ * @returns void
+ */
+const displayGeneratedCircleOrder = async (): Promise<void> => {
     for (let circle of randCircleOrderArr) {
         const selectedCircle = document.querySelector(`.game__circle--${circle}`);
         if (!selectedCircle) {
@@ -63,12 +82,15 @@ const displayGeneratedCircleOrder = async () => {
     circles.forEach(circle => circle.style.pointerEvents = "auto");
 }
 
-export const checkUserInputIsCorrect = () => {
+/** Compares user input vs required input then end game or start round. 
+ * 
+ */
+export const checkUserInputIsCorrect = ():void => {
     const isUserClicksFinished = userClicksArr.length == currentRound
     const isUserClicksCorrect = userClicksArr.join() === randCircleOrderArr.join()
     if (isUserClicksFinished) {
-        // Disable user clicks after reaching the correct amount of clicks
-        // This is reenabled after displaying machine generated circles
+        // Disable user clicks after reaching the correct amount of clicks,
+        // this is reenabled after displaying machine generated circles.
         circles.forEach(circle => circle.style.pointerEvents = "none");
     }
     if (isUserClicksFinished && isUserClicksCorrect) {
@@ -79,7 +101,11 @@ export const checkUserInputIsCorrect = () => {
     }
 }
 
-const handleEndGame = () => {
+/** Toggle isActiveGame and displays modal with game end feedback.
+ * 
+ * @returns void
+ */
+const handleEndGame = (): void => {
     const endOfGameModalPointsDisplay = document.querySelector<HTMLSpanElement>("#endOfGameModalPointsDisplay")
     if (!endOfGameModalPointsDisplay) {
         throw new Error("The end of game modal points display does not exist")
