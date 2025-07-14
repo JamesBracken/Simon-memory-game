@@ -8,10 +8,27 @@
     &__btn {
         color: palette.$color-white;
         font-family: typography.$text-primary;
-        font-size: typography.$fs-body-small;
+        font-size: typography.$fs-cta-btn;
         background-color: palette.$color-green;
         border-radius: 10px;
         padding: 3px 12px;
+
+        @include mixins.small-screen () {
+            font-size: typography.$fs-cta-btn-sm;
+            padding: 4px 15px;
+        }
+
+        @include mixins.medium-screen () {
+            font-size: typography.$fs-cta-btn-md;
+            padding: 4px 18px;
+        }
+
+        @include mixins.large-screen () {
+            font-size: typography.$fs-cta-btn-lg;
+            padding: 4px 22px;
+        }
+
+
 
         &:hover {
             transition: ease-in-out 300ms;
