@@ -1,24 +1,39 @@
+@use "../abstracts/mixins";
 // Global variables
 
 // Font families
 /* Headings */
-$text-primary: "Press Start 2P", system-ui;
+$text-primary: "Press Start 2P",
+system-ui;
 /* Body text */
-$text-secondary: "IBM Plex Mono", monospace;
+$text-secondary: "IBM Plex Mono",
+monospace;
 
-// Font sizes
-$fs-heading-1-lg: 4.063rem;
-/* 65px */
-$fs-heading-1: 3.125rem;
-/* 50px */
-$fs-heading-2: 2.5rem;
-/* 40px */
-$fs-subheading: 1.5625rem;
-/* 25px */
-$fs-body-large: 1.25rem;
-/* 20px */
-$fs-body-small: 1rem;
-/* 16px */
+// h1
+$fs-heading-1-lg: 85px;
+$fs-heading-1-md: 75px;
+$fs-heading-1-sm: 65px;
+$fs-heading-1: 50px;
+// h2
+$fs-heading-2-lg: 67px;
+$fs-heading-2-md: 57px;
+$fs-heading-2-sm: 47px;
+$fs-heading-2: 40px;
+// subheadings
+$fs-subheading-lg: 32px;
+$fs-subheading-md: 30px;
+$fs-subheading-sm: 28px;
+$fs-subheading: 25px;
+// body text - p, a etc
+$fs-body-lg: 24px;
+$fs-body-md: 21px;
+$fs-body-sm: 19px;
+$fs-body: 16px;
+// CTA buttons
+$fs-cta-btn-lg:29px;
+$fs-cta-btn-md:26px;
+$fs-cta-btn-sm:23px;
+$fs-cta-btn:20px;
 
 
 // Font weights
@@ -32,19 +47,59 @@ $fw-regular: 300;
 h1 {
     font-size: $fs-heading-1;
     font-family: $text-primary;
+
+    @include mixins.small-screen() {
+        font-size: $fs-heading-1-sm;
+    }
+    @include mixins.medium-screen() {
+        font-size: $fs-heading-1-md;
+    }
+    @include mixins.large-screen() {
+        font-size: $fs-heading-1-lg;
+    }
 }
 
 h2 {
     font-size: $fs-heading-2;
     font-family: $text-primary;
+
+    @include mixins.small-screen() {
+        font-size: $fs-heading-2-sm;
+    }
+    @include mixins.medium-screen() {
+        font-size: $fs-heading-2-md;
+    }
+    @include mixins.large-screen() {
+        font-size: $fs-heading-2-lg;
+    }
 }
 
 .subheading {
     font-family: $text-primary;
     font-size: $fs-subheading;
+
+    @include mixins.small-screen() {
+        font-size: $fs-subheading-sm;
+    }
+    @include mixins.medium-screen() {
+        font-size: $fs-subheading-md;
+    }
+    @include mixins.large-screen() {
+        font-size: $fs-subheading-lg;
+    }
 }
 
 p {
-    font-size: $fs-body-small;
+    font-size: $fs-body;
     font-family: $text-secondary;
+
+    @include mixins.small-screen() {
+        font-size: $fs-body-sm;
+    }
+    @include mixins.medium-screen() {
+        font-size: $fs-body-md;
+    }
+    @include mixins.large-screen() {
+        font-size: $fs-body-lg;
+    }
 }

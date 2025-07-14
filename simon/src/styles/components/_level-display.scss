@@ -1,6 +1,7 @@
 @use "../abstracts/palette";
 @use "../abstracts/mixins";
 
+// As this is the only h2 on the page the font size styles are in typography
 .level-display {
     @include mixins.center-content;
 
@@ -9,6 +10,20 @@
         justify-self: center;
         background-color: palette.$color-black;
         color: palette.$color-white;
-        padding: 8px 14px;
+        padding: 10px 14px 8px 17px;
+        
+        // Adding different paddings on each side to compensate for the font
+        // which has extra spacing on the right and bottom
+        @include mixins.small-screen () {
+            padding: 12px 15px 9px 18px;
+        }
+
+        @include mixins.medium-screen () {
+            padding: 14px 17px 10px 20px;
+        }
+
+        @include mixins.large-screen () {
+            padding: 17px 22px 11px 24px;
+        }
     }
 }

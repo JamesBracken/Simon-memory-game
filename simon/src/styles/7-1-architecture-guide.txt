@@ -13,9 +13,11 @@ base
 - Reset, typography, normalize
 components
 - Button, card, navbar, modal, etc.
-layout
+layout  (In this instance a layout folder was not necessary as 
+bootstrap is already taking care of this)
 - Grid, header, footer, nav
-pages
+pages ( As this is a 1 page project there is no need for a pages
+folder )
 - Page specific styles product, blog, login, signup
 themes
 - Theme files like dark.scss or light.scss

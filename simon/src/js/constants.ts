@@ -10,7 +10,8 @@ export const circles = document.querySelectorAll<HTMLDivElement>(".game__circle"
 if (!startBtn) {
     throw new Error("The start game button cannot be found");
 }
-// Creating and exporting this variable here because
+// Creating and exporting this variable here otherwise in the file where the 
+// variable is exported typescript flags it as possibly null
 export const startGameBtn = startBtn
 
 if (!circles) {

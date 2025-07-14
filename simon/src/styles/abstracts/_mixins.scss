@@ -1,3 +1,9 @@
+// To have uniformity and consistency across the project bootstrap
+// breakpoints are used since these are already used in our html
+$sm: 576px; // small screens
+$md: 768px; // tablets
+$lg: 992px; // landscape tablets / laptops
+
 @mixin center-content {
     display: flex;
     justify-content: center;
@@ -8,4 +14,23 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+}
+
+// Media query mixins
+@mixin small-screen() {
+    @media only screen and (min-width:$sm) and (max-width:$md) {
+        @content;
+    }
+}
+
+@mixin medium-screen() {
+    @media only screen and (min-width:$md) and (max-width:$lg) {
+        @content;
+    }
+}
+
+@mixin large-screen() {
+    @media only screen and (min-width:($lg + 1px)) {
+        @content;
+    }
 }
