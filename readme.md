@@ -1,19 +1,52 @@
+<!-- TOC start (generated with https://github.com/derlin/bitdowntoc) -->
+
+- [Simon memory game](#simon-memory-game)
+   * [ --> View the live deployed project here <-- ](#-view-the-live-deployed-project-here-)
+   * [UIX](#uix)
+      + [Strategy](#strategy)
+         - [Project overview](#project-overview)
+      + [Scope](#scope)
+         - [Agile methodology](#agile-methodology)
+      + [Skeleton](#skeleton)
+      + [Surface](#surface)
+         - [Colour scheme](#colour-scheme)
+         - [Typography](#typography)
+      + [Structure](#structure)
+         - [Page/code structure](#pagecode-structure)
+         - [Folder organisation(SASS, TS)](#folder-organisationsass-ts)
+   * [Testing](#testing)
+   * [Deployment](#deployment)
+      + [Github guide](#github-guide)
+   * [Credits](#credits)
+      + [Technologies](#technologies)
+      + [Code and resources used](#code-and-resources-used)
+      + [Acknowledgements](#acknowledgements)
+
+<!-- TOC end -->
+
+<!-- TOC --><a name="simon-memory-game"></a>
 # Simon memory game
 
+<!-- TOC --><a name="-view-the-live-deployed-project-here-"></a>
 ## [ --> View the live deployed project here <-- ](https://jamesbracken.github.io/Simon-memory-game/)
 
+<!-- TOC --><a name="uix"></a>
 ## UIX
 
+<!-- TOC --><a name="strategy"></a>
 ### Strategy
 
+<!-- TOC --><a name="project-overview"></a>
 #### Project overview
 
 Welcome to my reinvented verrsion of the simon memory game. This main target demographic would be younger individuals, childrens and teens who would like to have a bit of a challenge and enhance their memory skills. The game is fun, intuitive, user friendly and fully responsive.
 
+<!-- TOC --><a name="scope"></a>
 ### Scope
 
 Planning of my project was made using **Epics** at the highest level and then **User stories** as sub issues to the epic. Using User Stories we were able to place ourselves in the shoes of our end users so we can better plan our project. You can find the project board view and the backlog [HERE](https://github.com/users/JamesBracken/projects/18/views/1).
 
+<!-- TOC --><a name="agile-methodology"></a>
 #### Agile methodology
 
 This project followed an agile methodology approach to ensure we have an MVP by the project deadline and remained within scope. The project was developed in an iterative manner, being developed one component at a time. By using the Agile methodology we were able to get our MVP and more, we completed all Must and Should have user stories at present and can potentially still implement could have user stories.
@@ -30,6 +63,7 @@ Project Backlog
 
 ![Project Backlog](./src/assets/images/readme/project-backlog.PNG)
 
+<!-- TOC --><a name="skeleton"></a>
 ### Skeleton
 
 **Wireframes**
@@ -38,8 +72,10 @@ A low-medium fidelity wireframe was made with [Figma](https://www.figma.com/). T
 
 - [All pages](https://www.figma.com/design/SRSHu99Ow1RqFNh0B0Dld7/Nology-Wireframes?node-id=0-1&t=l1ev8iwxyY14MFOm-1)
 
+<!-- TOC --><a name="surface"></a>
 ### Surface
 
+<!-- TOC --><a name="colour-scheme"></a>
 #### Colour scheme
 
 The colour scheme of our final product is a representation of the original simon game. We used [Coolors](https://coolors.co/ffffff-e0e000-00b800-00007a-cc0000-343635-000000) to create our color palette and used shades of these colors for game UI effects.
@@ -50,6 +86,7 @@ Color palette
 ![Color palette](./src/assets/images/readme/color-palette.PNG)
 
 
+<!-- TOC --><a name="typography"></a>
 #### Typography
 
 We used [google fonts](https://fonts.google.com/) to add the chosen fonts for 
@@ -63,16 +100,20 @@ Chosen google fonts
 
 ![Project fonts](./src/assets/images/readme/fonts.PNG)
 
+<!-- TOC --><a name="structure"></a>
 ### Structure
 
+<!-- TOC --><a name="pagecode-structure"></a>
 #### Page/code structure
 
 To make our code structured and readable we use semantic HTMl, comments, docstrings and indentation. Our game is separated by placing the main game in the main and the UI components within the header.
 
+<!-- TOC --><a name="folder-organisationsass-ts"></a>
 #### Folder organisation(SASS, TS)
 
 To make our code more readable, undestandable and maintainable we have separated and segregated code according to convention. Our SCSS code follows the **7-1 architecture** and to aid this we use **BEM** naming convention for all of our classes. There is no specific convention for how to organise typescript code as it varies by team, I implemented the below folder structure which met my project needs while also separating and organising my typescript code well.
 
+<!-- TOC --><a name="testing"></a>
 ## Testing
 
 Through research I found that typescript doesnt cover all the bases of making sure that code is clean and flawless. I installed ESlint for some additional typescript testing to improve my typescript code and point out any unspotted mistakes.
@@ -86,9 +127,11 @@ ESlint final test
 
 ![Final ESlint test](./src/assets/images/readme/eslint-fixed.PNG)
 
+<!-- TOC --><a name="deployment"></a>
 ## Deployment
 
 
+<!-- TOC --><a name="github-guide"></a>
 ### Github guide
 
 As this github repository is public anyone who would like to work on this repo can do so by following the below steps 
@@ -150,8 +193,10 @@ Further assistance can be found [HERE](https://docs.github.com/en/pull-requests/
 3. Type git clone URL, replace URL with the one you just copied in the first step
 
 
+<!-- TOC --><a name="credits"></a>
 ## Credits
 
+<!-- TOC --><a name="technologies"></a>
 ### Technologies
 
 1. [Javascript](https://en.wikipedia.org/wiki/JavaScript) - Javascript is a scripting language used add in dynamic content in web browsers
@@ -178,6 +223,7 @@ Further assistance can be found [HERE](https://docs.github.com/en/pull-requests/
 
 12. [Github desktop](https://desktop.github.com/download/) - An app used to ease version control. 
 
+<!-- TOC --><a name="code-and-resources-used"></a>
 ### Code and resources used
 
 1. [SASS 7-1 architecture article](https://medium.com/@diyorbekjuraev77/be-a-master-at-creating-the-7-1-sass-pattern-776fdfb5a3b1) - This article gives a good explanation into how to structure your SASS
@@ -186,6 +232,7 @@ Further assistance can be found [HERE](https://docs.github.com/en/pull-requests/
 
 3. [Sass docs](https://sass-lang.com/) - Great documentation to aid in development of SCSS code 
 
+<!-- TOC --><a name="acknowledgements"></a>
 ### Acknowledgements
 
 A big thankyou to [nology](https://nology.io/) for giving me tools and training to make this project possible and to [Remi Hoeppe](https://github.com/remihoeppe) for training, support and feedback.
