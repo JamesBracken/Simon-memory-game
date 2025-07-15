@@ -86,8 +86,6 @@ export const attachEventListeners = (): void =>{
         handleStartNewGame();
     })
 
-    startGameBtn.addEventListener("click", handleStartNewGame);
-
     confirmRestartGameBtn.addEventListener("click", (): void => {
         const gameEndModal = document.querySelector("#confirmGameRestartModal");
         if (!gameEndModal) {
