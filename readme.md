@@ -154,6 +154,38 @@ Further assistance can be found [HERE](https://docs.github.com/en/pull-requests/
 
 ### Technologies
 
+1. [Javascript](https://en.wikipedia.org/wiki/JavaScript) - Javascript is a scripting language used add in dynamic content in web browsers
+
+2. [Typescript](https://en.wikipedia.org/wiki/TypeScript) - A superset of Javascript adding in type safety and other useful features to the language
+
+3. [SASS](https://sass-lang.com/) - A stable powerful CSS framework which assists in creating more organised structured CSS
+
+4. [HTML](https://en.wikipedia.org/wiki/HTML) - Hyper Text Markup Language, this is the skeleton and base of any webpage
+
+5. [VSCode](https://code.visualstudio.com/) - The most widely used IDE across the planet, we use vs code as our integrated development environment.
+
+6. [Github](https://github.com/) - A platform for displaying code, version control and a system for multiple developers to collaborate on the same codebase
+
+7. [Vite](https://vite.dev/) - Handles bundling, gives base templates and other tools to aid and ease the building of projects
+
+8. [ChatGPT](https://openai.com/index/chatgpt/) - AI used to aid development
+
+9. [Google fonts](https://fonts.google.com/) -  Generates fonts for the project
+
+10. [Figma](https://www.figma.com/) -  An application used to make wireframe drawings
+
+11. [Bootstrap](https://getbootstrap.com/) - Used to aid in development of responsiveness and inline styling
+
+12. [Github desktop](https://desktop.github.com/download/) - An app used to ease version control. 
+
 ### Code and resources used
 
+1. [SASS 7-1 architecture article](https://medium.com/@diyorbekjuraev77/be-a-master-at-creating-the-7-1-sass-pattern-776fdfb5a3b1) - This article gives a good explanation into how to structure your SASS
+
+2. [Vite & typescript projoect github deployment guide ](https://www.youtube.com/watch?v=Y3yCB7CfjF4) -  I used this video tutorial as a guide to how to deploy my project to github using github actions 
+
+3. [Sass docs](https://sass-lang.com/) - Great documentation to aid in development of SCSS code 
+
 ### Acknowledgements
+
+A big thankyou to [nology](https://nology.io/) for giving me tools and training to make this project possible and to [Remi Hoeppe](https://github.com/remihoeppe) for training, support and feedback.
