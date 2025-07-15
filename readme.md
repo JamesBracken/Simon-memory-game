@@ -65,15 +65,90 @@ Chosen google fonts
 
 ### Structure
 
-#### Typescript folders
+#### Page/code structure
 
-#### SASS folders
+To make our code structured and readable we use semantic HTMl, comments, docstrings and indentation. Our game is separated by placing the main game in the main and the UI components within the header.
+
+#### Folder organisation(SASS, TS)
+
+To make our code more readable, undestandable and maintainable we have separated and segregated code according to convention. Our SCSS code follows the **7-1 architecture** and to aid this we use **BEM** naming convention for all of our classes. There is no specific convention for how to organise typescript code as it varies by team, I implemented the below folder structure which met my project needs while also separating and organising my typescript code well.
 
 ## Testing
 
+Through research I found that typescript doesnt cover all the bases of making sure that code is clean and flawless. I installed ESlint for some additional typescript testing to improve my typescript code and point out any unspotted mistakes.
+
+My initial ESlint testing came up with minimal errors which were all fixed. 
+ESlint initial test
+
+![Initial ESlint test](./src/assets/images/readme/eslint-initial.PNG)
+
+ESlint final test
+
+![Final ESlint test](./src/assets/images/readme/eslint-fixed.PNG)
+
 ## Deployment
 
+
 ### Github guide
+
+As this github repository is public anyone who would like to work on this repo can do so by following the below steps 
+
+**Cloning**
+To clone a repository follow these steps
+
+1. Login in to Github or create an account if you haven't already
+
+2. Go to this project repository [Simon memory game](https://github.com/JamesBracken/Simon-memory-game))
+
+3. Click on the *Code* button and select whether you would like to cline with HTTPS, SSH or the Github CLI and then copy the link shown
+
+4. Open your terminal in your IDE/code editor of choice then change the current working directory to the location you would like to use for the cloned directory
+
+5. Type "git clone" into the terminal and paste the link you copied in the third step then press Enter
+
+6. To install the dependencies you can run **npm install** in your IDE(integrated development environment) terminal, the dependencies you need are listed in the package.json and package-lock.json files
+
+**Commiting and Pushing Changes**
+
+1. Open the terminal in the directory of your cloned repository
+
+2. Using "git status" check to see your changes are correct
+
+3. If you are ready to commit  type "git add ." to stage all saved changes to be commited, you can alternatively use "git add YOUR_FILENAME" to stage specific files for commit
+
+4. Using "git commit -m "Write your commit message here" commit your changes with a descriptive message, give a good amount of detail but try not to go over 50 characters
+
+5. Finally use "git push origin main" to push your changes to the main branch of your github repository
+
+
+**Forking**
+
+To fork this repository follow these steps
+
+1. Setup Git and make sure your git has github authentication
+
+2. Go to the web page repository [Simon memory game](https://github.com/JamesBracken/Simon-memory-game) 
+
+3. Click on *fork* on the upper right portion of the page.
+
+4. This has now forked the repository to your own profile. 
+
+5. Go to your profile and navigate to the forked repository.
+
+6. Click on *Code* above the list of forked files
+
+7. Choose the option you need from the dropdown menu. 
+
+Further assistance can be found [HERE](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/fork-a-repo) on the github Fork a Repo page
+
+**Local development**
+
+1. Clone your repository from Github, you can find the "Code" button where you can copy the url from
+
+2. Open your IDE and open a terminal, make sure you are in the correct directory where you want to clone the repository to.
+
+3. Type git clone URL, replace URL with the one you just copied in the first step
+
 
 ## Credits
 
