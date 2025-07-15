@@ -68,7 +68,7 @@ const addRandomCircle = (): void => {
  * @returns void
  */
 const displayGeneratedCircleOrder = async (): Promise<void> => {
-    for (let circle of randCircleOrderArr) {
+    for (const circle of randCircleOrderArr) {
         const selectedCircle = document.querySelector(`.game__circle--${circle}`);
         if (!selectedCircle) {
             throw new Error("The selected circle is null")
@@ -119,7 +119,5 @@ const handleEndGame = (): void => {
     }
     const modal = new Modal(gameEndModal)
     modal.show()
-    startGameBtn.addEventListener("click", () => {
-        handleStartNewGame
-    })
+    startGameBtn.addEventListener("click", handleStartNewGame)
 }

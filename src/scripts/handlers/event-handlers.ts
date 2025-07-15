@@ -47,7 +47,7 @@ const handleCircleClick = (e: Event) => {
  */
 const handleStartGameBtnClick = (): void => {
     if (!isActiveGame) {
-        handleStartNewGame
+        handleStartNewGame();
     } else {
         const gameEndModal = document.querySelector("#confirmGameRestartModal");
         if (!gameEndModal) {
@@ -86,18 +86,16 @@ export const attachEventListeners = (): void =>{
         handleStartNewGame();
     })
 
-    startGameBtn.addEventListener("click", handleStartNewGame);
-
     confirmRestartGameBtn.addEventListener("click", (): void => {
         const gameEndModal = document.querySelector("#confirmGameRestartModal");
         if (!gameEndModal) {
-            throw new Error("The game end modal cannot be found")
+            throw new Error("The game end modal cannot be found");
         }
         const modal = Modal.getInstance(gameEndModal);
         if (!modal) {
             throw new Error("The game modal instance cannot be found");
         }
         modal.hide();
-        handleStartNewGame;
+        handleStartNewGame();
     })
 }
