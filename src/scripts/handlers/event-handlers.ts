@@ -10,25 +10,14 @@ import { Modal } from "bootstrap";
 // file because they are only used here
 const restartGameBtn = document.querySelector<HTMLButtonElement>("#restartGameBtn");
 const confirmRestartGameBtn = document.querySelector<HTMLButtonElement>("#confirmRestartGameBtn");
-const instructionBtn = document.querySelector("#instructionBtn")
-const closeInstructionsBtn = document.querySelector("#closeInstructionsBtn")
+const instructionBtn = document.querySelector("#instructionBtn");
+const closeInstructionsBtn = document.querySelector("#closeInstructionsBtn");
 // Type guards------------
 
-if (!restartGameBtn) {
-    throw new Error("The restart game button cannot be found");
-}
-
-if (!confirmRestartGameBtn) {
-    throw new Error("The confirm restart game button cannot be found");
-}
-
-if (!instructionBtn) {
-    throw new Error("The instruction button cannot be found")
-}
-
-if (!closeInstructionsBtn) {
-    throw new Error("The instruction close button cannot be found")
-}
+if (!restartGameBtn) throw new Error("The restart game button cannot be found");
+if (!confirmRestartGameBtn) throw new Error("The confirm restart game button cannot be found");
+if (!instructionBtn) throw new Error("The instruction button cannot be found");
+if (!closeInstructionsBtn) throw new Error("The instruction close button cannot be found");
 
 // Functions---------
 
@@ -40,20 +29,19 @@ if (!closeInstructionsBtn) {
  */
 const handleCircleClick = (e: Event) => {
     const targetedCircle = e.target as HTMLDivElement;
-    if (!targetedCircle) throw new Error("targetedCircle could not be found")
+    if (!targetedCircle) throw new Error("targetedCircle could not be found");
 
     const circleSize = targetedCircle.dataset.circleSize;
-    if (!circleSize) throw new Error("circleSize cannot be found")
-    soundManager(circleSize)
-    if (!targetedCircle || !circleSize) {
-        throw new Error("The selected circle does not exist, what a conundrum!\
-            Either that or its size isnt present");
-    }
+    if (!circleSize) throw new Error("circleSize cannot be found");
+    soundManager(circleSize);
+    if (!targetedCircle || !circleSize) throw new Error("The selected circle \
+        does not exist, what a conundrum! Either that or its size isnt present");
     userClicksArr.push(circleSize);
     brightenColor(targetedCircle);
     incrementUserClicks();
     checkUserInputIsCorrect();
 }
+
 /** Handles a user clicking the start button. Starts a game if there isn't an
  * active one, if otherwise opens a modal to confirm game restart.
  * 
@@ -65,9 +53,7 @@ const handleStartGameBtnClick = (): void => {
         handleStartNewGame();
     } else {
         const gameEndModal = document.querySelector("#confirmGameRestartModal");
-        if (!gameEndModal) {
-            throw new Error("The game end modal has not been found, it may be undefined");
-        }
+        if (!gameEndModal) throw new Error("The game end modal has not been found, it may be undefined");
         const modal = new Modal(gameEndModal);
         modal.show();
     }
@@ -84,37 +70,25 @@ export const attachEventListeners = (): void => {
 
     startGameBtn.addEventListener("click", handleStartGameBtnClick);
 
-    circles.forEach((circle) => {
-        circle.addEventListener("click", handleCircleClick);
-    });
+    circles.forEach((circle) => circle.addEventListener("click", handleCircleClick));
 
     restartGameBtn.addEventListener("click", (): void => {
         const modalEl = document.querySelector("#gameEndModal");
-        if (!modalEl) {
-            throw new Error("The modal with id gameEndModal cannot be found");
-        }
+        if (!modalEl) throw new Error("The modal with id gameEndModal cannot be found");
         const modal = Modal.getInstance(modalEl);
-        if (!modal) {
-            throw new Error("The modal gameEndModal instance cannot be found");
-        }
+        if (!modal) throw new Error("The modal gameEndModal instance cannot be found");
         modal.hide();
         handleStartNewGame();
     })
 
     confirmRestartGameBtn.addEventListener("click", (): void => {
         const gameEndModal = document.querySelector("#confirmGameRestartModal");
-        if (!gameEndModal) {
-            throw new Error("The game end modal cannot be found");
-        }
+        if (!gameEndModal) throw new Error("The game end modal cannot be found");
         const modal = Modal.getInstance(gameEndModal);
-        if (!modal) {
-            throw new Error("The game modal instance cannot be found");
-        }
+        if (!modal) throw new Error("The game modal instance cannot be found");
         modal.hide();
         handleStartNewGame();
     })
-
     instructionBtn.addEventListener("click", () => soundManager("button"));
     closeInstructionsBtn.addEventListener("click", () => soundManager("button"));
 }
-
