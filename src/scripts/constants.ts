@@ -8,7 +8,6 @@ import {Howl} from "howler";
 // and are not affected by game state
 
 // Constant variables
-const BASE_URL = import.meta.env.BASE_URL
 export const startBtn = document.querySelector<HTMLButtonElement>("#startGameBtn")
 export const circles = document.querySelectorAll<HTMLDivElement>(".game__circle");
 export const sfx = {
