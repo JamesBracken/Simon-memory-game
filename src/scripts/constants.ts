@@ -1,3 +1,8 @@
+import sine1 from "@/assets/audio/sine-1.mp3";
+import sine2 from "@/assets/audio/sine-2.mp3";
+import sine3 from "@/assets/audio/sine-3.mp3";
+import sine4 from "@/assets/audio/sine-4.mp3";
+
 import {Howl} from "howler";
 // This is a file for constants which are used across multiple files
 // and are not affected by game state
@@ -9,10 +14,10 @@ export const circles = document.querySelectorAll<HTMLDivElement>(".game__circle"
 export const sfx = {
     // Howler recommends placing audio sources in arrays to be able to place 
     // backup audio/formats incase of incompatibility
-    smallCircle:  new Howl({src: [`${BASE_URL}src/assets/audio/sine-1.mp3`]}), //`${BASE_URL}src/assets/audio/piano-1.wav`,
-    mediumCircle: new Howl({src: [`${BASE_URL}src/assets/audio/sine-2.mp3`]}), // `${BASE_URL}src/assets/audio/piano-2.wav`,
-    largeCircle:  new Howl({src: [`${BASE_URL}src/assets/audio/sine-3.mp3`]}), //`${BASE_URL}src/assets/audio/piano-3.wav`,
-    xlargeCircle: new Howl({src: [`${BASE_URL}src/assets/audio/sine-4.mp3`]}), // `${BASE_URL}src/assets/audio/piano-4.wav`,
+    smallCircle:  new Howl({src: [sine1]}),
+    mediumCircle: new Howl({src: [sine2]}),
+    largeCircle:  new Howl({src: [sine3]}),
+    xlargeCircle: new Howl({src: [sine4]}),
 } 
 // Type guards
 
