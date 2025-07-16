@@ -3,7 +3,7 @@ import { userClicksArr, resetUserClicks, toggleIsActiveGame } from "./game-state
 import { startGameBtn, circles } from "../constants"
 import { delay } from "../utils/delay"
 import { brightenColor } from "../utils/brighten-color"
-import { sfx } from "../constants";
+import { soundManager } from "../utils/sfx";
 import { Modal } from "bootstrap";
 
 // Global variables-------
@@ -28,7 +28,7 @@ export const handleStartNewGame = (): void => {
     }
     resetUserClicks()
     currentRound = 0
-    sfx.gameStart.play()
+    soundManager("gameStart")
     startGameBtn.innerText = "Restart";
     handleNewRound()
     toggleIsActiveGame(true)
@@ -75,22 +75,7 @@ const displayGeneratedCircleOrder = async (): Promise<void> => {
         if (!selectedCircle) {
             throw new Error("The selected circle is null")
         }
-        switch (circle) {
-            case "small":
-                sfx.smallCircle.play()
-                break
-            case "medium":
-                sfx.mediumCircle.play()
-                break
-            case "large":
-                sfx.largeCircle.play()
-                break
-            case "xlarge":
-                sfx.xlargeCircle.play()
-                break
-            default:
-                throw new Error(`${circle} sound effects not found`);
-        }
+        soundManager(circle)
         brightenColor(selectedCircle)
         // The below time delay would ideally be the same or close to the  
         // brightenColor timeout
@@ -124,7 +109,7 @@ export const checkUserInputIsCorrect = (): void => {
  * @returns void
  */
 const handleEndGame = (): void => {
-    sfx.gameEnd.play()
+    soundManager("gameEnd")
     const endOfGameModalPointsDisplay = document.querySelector<HTMLSpanElement>("#endOfGameModalPointsDisplay")
     if (!endOfGameModalPointsDisplay) {
         throw new Error("The end of game modal points display does not exist")
