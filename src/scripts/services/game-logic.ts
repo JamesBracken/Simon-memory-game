@@ -3,6 +3,7 @@ import { userClicksArr, resetUserClicks, toggleIsActiveGame } from "./game-state
 import { startGameBtn, circles } from "../constants"
 import { delay } from "../utils/delay"
 import { brightenColor } from "../utils/brighten-color"
+import { sfx } from "../constants";
 import { Modal } from "bootstrap";
 
 // Global variables-------
@@ -73,6 +74,22 @@ const displayGeneratedCircleOrder = async (): Promise<void> => {
         if (!selectedCircle) {
             throw new Error("The selected circle is null")
         }
+        switch (circle) {
+            case "small":
+                sfx.smallCircle.play()
+                break
+            case "medium":
+                sfx.mediumCircle.play()
+                break
+            case "large":
+                sfx.largeCircle.play()
+                break
+            case "xlarge":
+                sfx.xlargeCircle.play()
+                break
+            default:
+                throw new Error(`${circle} sound effects not found`);
+        }
         brightenColor(selectedCircle)
         // The below time delay would ideally be the same or close to the  
         // brightenColor timeout
@@ -85,7 +102,7 @@ const displayGeneratedCircleOrder = async (): Promise<void> => {
 /** Compares user input vs required input then end game or start round. 
  * 
  */
-export const checkUserInputIsCorrect = ():void => {
+export const checkUserInputIsCorrect = (): void => {
     const isUserClicksFinished = userClicksArr.length == currentRound
     const isUserClicksCorrect = userClicksArr.join() === randCircleOrderArr.join()
     if (isUserClicksFinished) {
