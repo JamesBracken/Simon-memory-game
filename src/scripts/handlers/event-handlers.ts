@@ -3,6 +3,7 @@ import { userClicksArr, isActiveGame, incrementUserClicks } from "../services/ga
 import { checkUserInputIsCorrect, handleStartNewGame } from "../services/game-logic";
 import { brightenColor } from "../utils/brighten-color";
 import { startGameBtn, circles } from "../constants";
+import { sfx } from "../constants";
 import { Modal } from "bootstrap";
 // Global variables
 // These variables are dom selectors however are placed in this
@@ -30,7 +31,30 @@ if (!confirmRestartGameBtn) {
  */
 const handleCircleClick = (e: Event) => {
     const targetedCircle = e.target as HTMLDivElement;
+    if (!targetedCircle) throw new Error("targetedCircle could not be found")
+
     const circleSize = targetedCircle.dataset.circleSize;
+    if (!circleSize) throw new Error("circleSize cannot be found")
+
+    switch (circleSize) {
+        case "small":
+            sfx.smallCircle.play()
+            break
+        case "medium":
+            sfx.mediumCircle.play()
+            break
+        case "large":
+            sfx.largeCircle.play()
+            break
+        case "xlarge":
+            sfx.xlargeCircle.play()
+            break
+        default:
+            throw new Error(`${circleSize} sound effects not found`);
+    }
+
+    console.log("targetedCircle", targetedCircle)
+    console.log("circleSize", circleSize);
     if (!targetedCircle || !circleSize) {
         throw new Error("The selected circle does not exist, what a conundrum!\
             Either that or its size isnt present");
@@ -65,7 +89,7 @@ const handleStartGameBtnClick = (): void => {
  * 
  * @returns void
  */
-export const attachEventListeners = (): void =>{
+export const attachEventListeners = (): void => {
 
     startGameBtn.addEventListener("click", handleStartGameBtnClick);
 
