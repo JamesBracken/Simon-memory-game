@@ -70,6 +70,7 @@ const handleCircleClick = (e: Event) => {
  * @returns void 
  */
 const handleStartGameBtnClick = (): void => {
+    sfx.button.play()
     if (!isActiveGame) {
         handleStartNewGame();
     } else {

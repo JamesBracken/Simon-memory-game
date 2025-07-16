@@ -28,6 +28,7 @@ export const handleStartNewGame = (): void => {
     }
     resetUserClicks()
     currentRound = 0
+    sfx.gameStart.play()
     startGameBtn.innerText = "Restart";
     handleNewRound()
     toggleIsActiveGame(true)
@@ -123,6 +124,7 @@ export const checkUserInputIsCorrect = (): void => {
  * @returns void
  */
 const handleEndGame = (): void => {
+    sfx.gameEnd.play()
     const endOfGameModalPointsDisplay = document.querySelector<HTMLSpanElement>("#endOfGameModalPointsDisplay")
     if (!endOfGameModalPointsDisplay) {
         throw new Error("The end of game modal points display does not exist")
