@@ -11,18 +11,17 @@ let userClickCounter: number = 0;
  * 
  * @returns number
  */
-export const incrementUserClicks = (): number => userClickCounter += 1
+export const incrementUserClicks = (): number => userClickCounter += 1;
 
 /** Set userClickCounter to 0.
  * 
  * @returns number 
  */
-export const resetUserClicks = (): number => userClickCounter = 0
+export const resetUserClicks = (): number => userClickCounter = 0;
 
 /** Toggles game activity.
  * 
  * @param isActive - a boolean value based on game activity
  * @returns boolean
  */
-export const toggleIsActiveGame = (isActive: boolean): boolean => (isActiveGame
-    = isActive)
+export const toggleIsActiveGame = (isActive: boolean): boolean => isActiveGame = isActive;

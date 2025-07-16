@@ -25,27 +25,27 @@ export const soundManager = (item: string) => {
 
     switch (item) {
         case "button":
-            sfx.button.play()
-            break
+            sfx.button.play();
+            break;
         case "gameEnd":
-            sfx.gameEnd.play()
-            break
+            sfx.gameEnd.play();
+            break;
         case "gameStart":
-            sfx.gameStart.play()
-            break
+            sfx.gameStart.play();
+            break;
         case "small":
-            sfx.smallCircle.play()
-            break
+            sfx.smallCircle.play();
+            break;
         case "medium":
-            sfx.mediumCircle.play()
-            break
+            sfx.mediumCircle.play();
+            break;
         case "large":
-            sfx.largeCircle.play()
-            break
+            sfx.largeCircle.play();
+            break;
         case "xlarge":
-            sfx.xlargeCircle.play()
-            break
+            sfx.xlargeCircle.play();
+            break;
         default:
-            throw new Error(`The soundManager could not match ${item} with a sound`)
+            throw new Error(`The soundManager could not match ${item} with a sound`);
     }
 }
